@@ -1,4 +1,6 @@
+import './style.css'
 import * as THREE from 'three'
+import gsap from 'gsap'
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -12,10 +14,6 @@ const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
-//Axes Helper
-const axesHelper = new THREE.AxesHelper(2)
-scene.add(axesHelper)
-
 // Sizes
 const sizes = {
     width: 800,
@@ -24,8 +22,6 @@ const sizes = {
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
-/*onst camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height,
-1, 100)*/
 camera.position.z = 3
 scene.add(camera)
 
@@ -34,52 +30,26 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
-renderer.render(scene, camera)
 
-//Anmate
-const tick = () =>
-{
-// Update objects
-mesh.rotation.y += 0.01
-mesh.rotation.x += 0.01
-// Render
-renderer.render(scene, camera)
-// Call tick again on the next frame
-window.requestAnimationFrame(tick)
-}
-tick()
-
-
-/*let time = Date.now()
-const tick = () =>
-{
-
-// Time
-
-const currentTime = Date.now()
-const deltaTime = currentTime - time
-time = currentTime
-// Update objects
-mesh.rotation.y += 0.01 * deltaTime
-// Render
-renderer.render(scene, camera)
-// Call tick again on the next frame
-window.requestAnimationFrame(tick)
-}
-tick()*/
-
+// Animation
 /*const clock = new THREE.Clock()
-const tick = () =>
-{
-const elapsedTime = clock.getElapsedTime()
-// Update objects
-mesh.rotation.y = elapsedTime
-// Render
-renderer.render(scene, camera)
-// Call tick again on the next frame
-window.requestAnimationFrame(tick)
+
+const tick = () => {
+    const elapsedTime = clock.getElapsedTime()
+    
+    // Update objects
+    mesh.rotation.y = elapsedTime
+    mesh.rotation.x = elapsedTime * 0.5
+    
+    // Render
+    renderer.render(scene, camera)
+    
+    // Call tick again on the next frame
+    window.requestAnimationFrame(tick)
 }
+
 tick()*/
+
 
 /*const clock = new THREE.Clock()
 const tick = () =>
@@ -94,6 +64,7 @@ renderer.render(scene, camera)
 window.requestAnimationFrame(tick)
 }
 tick()*/
+
 
 /*const clock = new THREE.Clock()
 const tick = () =>
@@ -110,16 +81,13 @@ window.requestAnimationFrame(tick)
 }
 tick()*/
 
-/*gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
 
+gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
 const tick = () =>
 {
-
 // Render
 renderer.render(scene, camera)
-
 // Call tick again on the next frame
 window.requestAnimationFrame(tick)
 }
-
-tick()*/
+tick()
