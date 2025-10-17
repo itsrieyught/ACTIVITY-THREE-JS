@@ -1,15 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/Activity 1.1-1.2", "destination": "/Activity 1.1-1.2/index.html" },
-    { "source": "/Activity 1.3", "destination": "/Activity 1.3/index.html" },
-    { "source": "/Activity 1.4", "destination": "/Activity 1.4/index.html" },
-    { "source": "/Activity 1.5", "destination": "/Activity 1.5/index.html" },
-    { "source": "/Activity 1.6", "destination": "/Activity 1.6/index.html" },
-    { "source": "/Activity 1.7", "destination": "/Activity 1.7/index.html" },
-    { "source": "/Activity 1.8", "destination": "/Activity 1.8/index.html" },
-    { "source": "/Activity 1.9", "destination": "/Activity 1.9/index.html" },
-    { "source": "/Activity 1.10", "destination": "/Activity 1.10/index.html" },
-    { "source": "/Activity 1.11", "destination": "/Activity 1.11/index.html" },
-    { "source": "/Activity 1.12", "destination": "/Activity 1.12/index.html" }
-  ]
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
